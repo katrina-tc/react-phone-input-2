@@ -100,6 +100,8 @@ class PhoneInput extends React.Component {
     ]),
     defaultErrorMessage: PropTypes.string,
     specialLabel: PropTypes.string,
+    
+    inputChildren: PropTypes.element,
   }
 
   static defaultProps = {
@@ -172,7 +174,9 @@ class PhoneInput extends React.Component {
     keys: {
       UP: 38, DOWN: 40, RIGHT: 39, LEFT: 37, ENTER: 13,
       ESC: 27, PLUS: 43, A: 65, Z: 90, SPACE: 32, TAB: 9,
-    }
+    },
+
+    inputChildren: null,
   }
 
   constructor(props) {
@@ -937,6 +941,7 @@ class PhoneInput extends React.Component {
       'form-control': true,
       'invalid-number': !isValidValue,
       'open': showDropdown,
+      'peer': true,
       [this.props.inputClass]: true,
     });
     const selectedFlagClasses = classNames({
@@ -982,6 +987,7 @@ class PhoneInput extends React.Component {
             }
           }}
         />
+        {this.props.inputChildren && this.props.inputChildren}
 
         <div
           className={flagViewClasses}
