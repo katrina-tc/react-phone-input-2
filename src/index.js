@@ -176,7 +176,7 @@ class PhoneInput extends React.Component {
       ESC: 27, PLUS: 43, A: 65, Z: 90, SPACE: 32, TAB: 9,
     },
 
-    inputSlot,
+    inputSlot: null,
   }
 
   constructor(props) {
@@ -987,7 +987,7 @@ class PhoneInput extends React.Component {
             }
           }}
         />
-        {inputSlot}
+        {this.props.inputSlot&& this.props.inputSlot}
 
         <div
           className={flagViewClasses}
